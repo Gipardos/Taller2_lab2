@@ -21,7 +21,7 @@ public class Conexion {
     
     Connection con=null;
     String user="root";// User de BD
-    String pass="";// Pass de BD 311098
+    String pass="311098";// Pass de BD 
     String server="jdbc:mysql://localhost:3306/"; //URL de Servidor que aloja la BD (localhost significa que está en su propio computador.
     String db="bdlogin"; //nombre de la BD
     String driver="com.mysql.jdbc.Driver"; //Dependiendo del motor de BD que use, debe modificar este valor.
