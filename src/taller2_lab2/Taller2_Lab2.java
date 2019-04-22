@@ -5,17 +5,20 @@
  */
 package taller2_lab2;
 
+import Vista.VentanaInicio;
+
 /**
  *
  * @author gusta
  */
 public class Taller2_Lab2 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) {      
+
+
+        VentanaInicio v = new VentanaInicio();
+        v.setVisible(true);
+        
     }
     
 }
