@@ -7,10 +7,7 @@ package taller2_lab2;
 
 import Vista.VentanaInicio;
 
-/**
- *
- * @author gusta
- */
+
 public class Taller2_Lab2 {
 
     public static void main(String[] args) {      
