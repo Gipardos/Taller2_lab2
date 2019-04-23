@@ -1,34 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package vista;
 
-package Vista;
+import controlador.InicioController;
 
 /**
  *
- * @author Nicole
+ * @author valen
  */
-import java.awt.event.ActionEvent;
-
 public class VentanaInicio extends javax.swing.JFrame {
 
+    /**
+     * Creates new form VentanaHome
+     */
     public VentanaInicio() {
         initComponents();
+        InicioController c = new InicioController();
+        bntRegistrar.addActionListener(c);
+        btnReporte.addActionListener(c);
         
-        RegistrarVentaButton.addActionListener((e)->{
-            abrirRegistrarVenta(e);
-        });
         
-        VerReporteButton.addActionListener((e)->{
-           abrirVentanaReportes(e); 
-        });
-    }
-    
-    public void abrirRegistrarVenta(ActionEvent e){
-        RegistrarVenta rv = new RegistrarVenta();
-        rv.setVisible(true);
-    }
-    
-    public void abrirVentanaReportes(ActionEvent e){
-        VentanaReportes vr = new VentanaReportes();
-        vr.setVisible(true);
+        bntRegistrar.setActionCommand("registrar");
+        btnReporte.setActionCommand("reporte");
+        
     }
 
     /**
@@ -40,17 +37,22 @@ public class VentanaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        RegistrarVentaButton = new javax.swing.JToggleButton();
-        VerReporteButton = new javax.swing.JToggleButton();
+        bntRegistrar = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        RegistrarVentaButton.setText("Registrar Venta");
-
-        VerReporteButton.setText("Ver Reporte");
-        VerReporteButton.addActionListener(new java.awt.event.ActionListener() {
+        bntRegistrar.setText("Registrar Venta");
+        bntRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerReporteButtonActionPerformed(evt);
+                bntRegistrarActionPerformed(evt);
+            }
+        });
+
+        btnReporte.setText("Ver Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
             }
         });
 
@@ -58,29 +60,33 @@ public class VentanaInicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(RegistrarVentaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VerReporteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(bntRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(RegistrarVentaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(VerReporteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(79, 79, 79)
+                .addComponent(bntRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VerReporteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerReporteButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VerReporteButtonActionPerformed
+    private void bntRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntRegistrarActionPerformed
+        
+    }//GEN-LAST:event_bntRegistrarActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +114,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -118,7 +125,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton RegistrarVentaButton;
-    private javax.swing.JToggleButton VerReporteButton;
+    private javax.swing.JButton bntRegistrar;
+    private javax.swing.JButton btnReporte;
     // End of variables declaration//GEN-END:variables
 }

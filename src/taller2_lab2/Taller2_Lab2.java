@@ -5,7 +5,7 @@
  */
 package taller2_lab2;
 
-import Vista.VentanaInicio;
+import vista.VentanaInicio;
 
 
 public class Taller2_Lab2 {

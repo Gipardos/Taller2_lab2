@@ -1,15 +1,17 @@
 
 package Modelo;
 
+import java.util.Date;
+
 public class Venta {
     private int idVenta;
     private String sucursal;
     private int monto;
-    private String fecha;
-    private int idVendedor;
+    private Date fecha;
+    private int idVendedor; 
     
 
-    public Venta(int idVenta, String sucursal, int monto, String fecha, int idVendedor) {
+    public Venta(int idVenta, String sucursal, int monto, Date fecha, int idVendedor) {
         this.idVenta = idVenta;
         this.sucursal = sucursal;
         this.monto = monto;
@@ -29,7 +31,7 @@ public class Venta {
         return monto;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 

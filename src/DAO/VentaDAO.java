@@ -1,7 +1,7 @@
 
 package DAO;
 
-import Modelo.Conexion;
+import modelo.Conexion;
 import Modelo.Venta;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,8 +13,8 @@ import java.util.Date;
 public class VentaDAO {
     Conexion con;
 
-    public VentaDAO(Conexion con) {
-        this.con = con;
+    public VentaDAO() {
+        this.con = new Conexion();
     }
     
     public ArrayList<Venta> getVenta(String mes){
@@ -30,7 +30,7 @@ public class VentaDAO {
                 int id_venta = Integer.parseInt(resultados.getString("id venta"));
                 String sucursal = resultados.getString("sucursal");
                 int monto = Integer.parseInt(resultados.getString("monto"));
-                String fecha = resultados.getString("fecha");
+                Date fecha = resultados.getDate("fecha");
                 int id_vendedor = Integer.parseInt(resultados.getString("id vendedor"));
                 ventas.add(new Venta(id_venta, sucursal, monto, fecha, id_vendedor));
             }

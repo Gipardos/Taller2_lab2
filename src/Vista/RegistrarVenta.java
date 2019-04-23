@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.VentaController;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
@@ -17,9 +19,30 @@ public class RegistrarVenta extends javax.swing.JFrame {
     
     public RegistrarVenta() {
         initComponents();
-        vc = new VentaController(SucursalBox, VendedorBox, this);
+        vc = new VentaController(this);
+        RegistrarButton.addActionListener(vc);        
+        RegistrarButton.setActionCommand("registrar");
     }
 
+    public JComboBox<String> getSucursalBox() {
+        return SucursalBox;
+    }
+
+    public JComboBox<String> getVendedorBox() {
+        return VendedorBox;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public JTextField getjTextField2() {
+        return jTextField2;
+    }
+    
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,14 +79,18 @@ public class RegistrarVenta extends javax.swing.JFrame {
             }
         });
 
-        VendedorBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         VendedorBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VendedorBoxActionPerformed(evt);
             }
         });
 
-        SucursalBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SucursalBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "centro", "portal temuco", " " }));
+        SucursalBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SucursalBoxActionPerformed(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,14 +114,12 @@ public class RegistrarVenta extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel4))
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(RegistrarButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(VendedorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SucursalBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addComponent(jTextField2)))
+                    .addComponent(SucursalBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(jTextField2)
+                    .addComponent(VendedorBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,6 +160,10 @@ public class RegistrarVenta extends javax.swing.JFrame {
     private void VendedorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VendedorBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_VendedorBoxActionPerformed
+
+    private void SucursalBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SucursalBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SucursalBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,4 +211,6 @@ public class RegistrarVenta extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+  
 }

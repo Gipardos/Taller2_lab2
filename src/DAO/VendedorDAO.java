@@ -1,7 +1,7 @@
 
 package DAO;
 
-import Modelo.Conexion;
+import modelo.Conexion;
 import Modelo.Vendedor;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,27 +11,27 @@ import java.util.ArrayList;
 public class VendedorDAO {
     Conexion con;
 
-    public VendedorDAO(Conexion con) {
-        this.con = con;
+    public VendedorDAO() {
+        this.con = new Conexion();
     }
     
     public ArrayList<Vendedor> getVendedor(){
         ArrayList<Vendedor> vendedores = new ArrayList<>();
-        Connection accesoBD = con.getConexion();
+        Connection taller2 = con.getConexion();
         
         try{
             String sql = "SELECT * FROM vendedor";
-            Statement st = accesoBD.createStatement();
+            Statement st = taller2.createStatement();
             ResultSet resultados = st.executeQuery(sql);
             
             while(resultados.next()){
-                int id_vendedor = Integer.parseInt(resultados.getString("id cuenta"));
+                int id_vendedor = Integer.parseInt(resultados.getString("id_vendedor"));
                 String nombre = resultados.getString("nombre");
                 String apellido = resultados.getString("apellido");
                 String rut = resultados.getString("rut");
                 vendedores.add(new Vendedor(id_vendedor, nombre, apellido, rut));
             }
-            accesoBD.close();
+            taller2.close();
             return vendedores;
         }catch (Exception e){
             System.out.println();
@@ -57,4 +57,6 @@ public class VendedorDAO {
         }
         return respuesta;
     }
+
 }
+

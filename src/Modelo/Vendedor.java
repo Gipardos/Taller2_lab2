@@ -14,7 +14,7 @@ public class Vendedor {
         this.rut = rut;
     }
 
-    public int getIdVendedor() {
+    public int getIdVendedor() { 
         return idVendedor;
     }
 
@@ -28,6 +28,10 @@ public class Vendedor {
 
     public String getRut() {
         return rut;
+    }
+    
+    public String toString() {
+        return this.nombre + " " + apellido;
     }
 
    
