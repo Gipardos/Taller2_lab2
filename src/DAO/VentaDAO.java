@@ -46,11 +46,11 @@ public class VentaDAO {
     
     public boolean añadirVenta(Venta v) {
         boolean respuesta = false;
-        Connection accesoBD = con.getConexion();
+        Connection taller2 = con.getConexion();
 
         try {
             String sql = "INSERT INTO venta VALUES ( NULL ,'" + v.getSucursal() + "', '" + v.getMonto() + "', '" + v.getFecha() + "','" + v.getIdVendedor() + "')";
-            Statement st = accesoBD.createStatement();
+            Statement st = taller2.createStatement();
             st.executeUpdate(sql);
             respuesta = true;
         } catch (Exception e) {
@@ -59,29 +59,5 @@ public class VentaDAO {
             e.printStackTrace();
         }
         return respuesta;
-    }
-    
-    public ArrayList<Integer> getVentasMejorVendedor(String mes) {
-        ArrayList<Integer> ventasMejorVendedor = new ArrayList<>();
-        Connection accesoBD = con.getConexion();
-
-        try {
-            String sql = "SELECT id_vendedor, SUM(monto) AS total FROM venta WHERE fecha BETWEEN '2019-" + mes + "-01' and '2019-" + mes + "-31' Group By id_vendedor order BY total DESC";
-            Statement st = accesoBD.createStatement();
-            ResultSet resultados = st.executeQuery(sql);
-            while (resultados.next()) {
-                int idMejorVendedor = Integer.parseInt(resultados.getString("id_vendedor"));
-                int totalMejorVendedor = Integer.parseInt(resultados.getString("total"));
-                ventasMejorVendedor.add(idMejorVendedor);
-                ventasMejorVendedor.add(totalMejorVendedor);
-            }            
-            return ventasMejorVendedor;
-        } catch (Exception e) {
-            System.out.println();
-            System.out.println("Error al obtener");
-            e.printStackTrace();
-            return null;
-        }
-
     }
 }
