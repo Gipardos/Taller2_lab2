@@ -43,11 +43,11 @@ public class VendedorDAO {
     
     public boolean añadirVendedor(Vendedor v) {
         boolean respuesta = false;
-        Connection accesoBD = con.getConexion();
+        Connection taller2 = con.getConexion();
 
         try {
             String sql = "INSERT INTO vendedor VALUES ( NULL ,'" + v.getNombre() + "', '" + v.getApellido() + "', '" + v.getRut() + "')";
-            Statement st = accesoBD.createStatement();
+            Statement st = taller2.createStatement();
             st.executeUpdate(sql);
             respuesta = true;
         } catch (Exception e) {
